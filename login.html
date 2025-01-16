@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumous - Authentication</title>
+    <link href="logo/Lumous 1 Icon_page-0001.jpg" rel="icon">
+
+    <style>
+        /* Previous CSS styles remain the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-top: 2rem;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo img {
+            width: 120px;
+            height: auto;
+        }
+
+        .welcome-text {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-text h1 {
+            color: #1a73e8;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-text p {
+            color: #5f6368;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #5f6368;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #dadce0;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #1a73e8;
+        }
+
+        .form-group .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            cursor: pointer;
+            color: #5f6368;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .remember-me input {
+            margin-right: 0.5rem;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #1557b0;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .switch-form a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #d93025;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="container" id="loginForm">
+        <div class="logo">
+            <img src="logo/Lumous 1 Icon_page-0001.jpg" alt="Lumous Logo">
+        </div>
+        <div class="welcome-text">
+            <h1>Welcome to Lumous</h1>
+            <p>Sign in to access your account</p>
+        </div>
+        <div class="alert alert-error" id="loginAlert"></div>
+        <form action="login.php" method="POST" onsubmit="return validateLoginForm()">
+            <div class="form-group">
+                <label for="loginUsername">Username</label>
+                <input type="text" id="loginUsername" name="username" required>
+                <div class="error-message" id="loginUsernameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" required>
+                <i class="toggle-password" onclick="togglePassword('loginPassword')">👁️</i>
+                <div class="error-message" id="loginPasswordError"></div>
+            </div>
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe" name="remember">
+                <label for="rememberMe">Remember me</label>
+            </div>
+            <button type="submit" class="btn">Sign In</button>
+            <div class="switch-form">
+                <p>Don't have an account? <a href="#" onclick="toggleForms()">Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="container" id="signupForm" style="display: none;">
+        <div class="logo">
+            <img src="logo/Lumous 1 Icon_page-0001.jpg" alt="Lumous Logo">
+        </div>
+        <div class="welcome-text">
+            <h1>Create Account</h1>
+            <p>Join Lumous today</p>
+        </div>
+        <div class="alert alert-success" id="signupAlert"></div>
+        <form action="signup.php" method="POST" onsubmit="return validateSignupForm()">
+            <div class="form-group">
+                <label for="signupName">Full Name</label>
+                <input type="text" id="signupName" name="name" required>
+                <div class="error-message" id="nameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="signupUsername">Username</label>
+                <input type="text" id="signupUsername" name="username" required>
+                <div class="error-message" id="usernameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" name="email" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="signupPhone">Phone Number</label>
+                <input type="tel" id="signupPhone" name="phone" required>
+                <div class="error-message" id="phoneError"></div>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" name="password" required>
+                <i class="toggle-password" onclick="togglePassword('signupPassword')">👁️</i>
+                <div class="error-message" id="passwordError"></div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirm_password" required>
+                <i class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</i>
+                <div class="error-message" id="confirmPasswordError"></div>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+            <div class="switch-form">
+                <p>Already have an account? <a href="#" onclick="toggleForms()">Sign In</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
+        }
+
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
+        function validateLoginForm() {
+            let isValid = true;
+            const username = document.getElementById('loginUsername');
+            const password = document.getElementById('loginPassword');
+            
+            // Reset error messages
+            document.getElementById('loginUsernameError').style.display = 'none';
+            document.getElementById('loginPasswordError').style.display = 'none';
+
+            // Username validation
+            if (username.value.length < 3) {
+                document.getElementById('loginUsernameError').textContent = 'Username must be at least 3 characters long';
+                document.getElementById('loginUsernameError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Password validation
+            if (password.value.length < 6) {
+                document.getElementById('loginPasswordError').textContent = 'Password must be at least 6 characters long';
+                document.getElementById('loginPasswordError').style.display = 'block';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function validateSignupForm() {
+            let isValid = true;
+            const name = document.getElementById('signupName');
+            const username = document.getElementById('signupUsername');
+            const email = document.getElementById('signupEmail');
+            const phone = document.getElementById('signupPhone');
+            const password = document.getElementById('signupPassword');
+            const confirmPassword = document.getElementById('confirmPassword');
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(error => error.style.display = 'none');
+
+            // Name validation
+            if (name.value.length < 2) {
+                document.getElementById('nameError').textContent = 'Name must be at least 2 characters long';
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Username validation
+            if (username.value.length < 3) {
+                document.getElementById('usernameError').textContent = 'Username must be at least 3 characters long';
+                document.getElementById('usernameError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Email validation
+            if (!email.value.match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Phone validation
+            if (!phone.value.match(/^\d{10}$/)) {
+                document.getElementById('phoneError').textContent = 'Please enter a valid 10-digit phone number';
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Password validation
+            if (password.value.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters long';
+                document.getElementById('passwordError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Confirm password validation
+            if (password.value !== confirmPassword.value) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
+                document.getElementById('confirmPasswordError').style.display = 'block';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Check for URL parameters to show messages
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const signupSuccess = urlParams.get('signup');
+            const loginError = urlParams.get('error');
+
+            if (signupSuccess === 'success') {
+                const alert = document.getElementById('loginAlert');
+                alert.textContent = 'Registration successful! Please login with your credentials.';
+                alert.className = 'alert alert-success';
+                alert.style.display = 'block';
+            }
+
+            if (loginError === 'invalid') {
+                const alert = document.getElementById('loginAlert');
+                alert.textContent = 'Invalid username or password!';
+                alert.className = 'alert alert-error';
+                alert.style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>

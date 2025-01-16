@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lumous Global Ventures - Testimonial</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="logo/Lumous 1 Icon_page-0001.jpg" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <style>
+          /* *,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+/* body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .icon {
+    text-decoration: none;
+    width: 2.625rem;
+    height: 2.625rem;
+    border-radius: 14px;
+    /* background-color: hsla(209 20% 70% / 20%); */ /* For dark theme */
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  }
+  
+  .icon > i {
+    color: #2dd4bf;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+  }
+  
+  .icon:hover > i {
+    scale: 1.2;
+    color: #f1f1f1;
+  }
+  
+  .icon:before {
+    background: var(--color);
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    left: -110%;
+    top: 80%;
+    transform: rotate(45deg);
+  }
+  
+  .icon:hover:before {
+    animation: slide 0.7s forwards;
+  }
+  
+  @keyframes slide {
+    50% {
+      left: 10%;
+      top: -40%;
+    }
+  
+    100% {
+      left: -15%;
+      top: -15%;
+    }
+  }
+  
+  .icon:has(.fa-instagram) {
+    --color: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+  }
+  .icon:has(.fa-linkedin-in) {
+    --color: #0077b5;
+  }
+  .icon:has(.fa-youtube) {
+    --color: #ff0000;
+  }
+  .icon:has(.fa-x-twitter) {
+    --color: #1da1f2;
+  }
+  .icon:has(.fa-github) {
+    --color: #333;
+  }
+  .icon:has(.fa-facebook-f){
+    --color: #3b5998;
+  }
+        .logo-style {
+            height: 80px; 
+            width: 80px;
+        }
+                /* General Layout Styling */
+                #display-video-section {
+            width: 90%;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Two-Column Layout */
+        .videoGrid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            justify-items: center;
+        }
+
+        .videoColumn {
+            flex: 1; /* Equal width columns */
+        }
+
+        .video-card video {
+            width: 70%;
+            height: auto;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        /* Pagination Styling to Match the Image */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 5px;
+        }
+
+        .pagination a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            background-color: #f1f1f1;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagination a:hover {
+            background-color: #152440;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .pagination a.active {
+            background-color: #152440;
+            color: white;
+            cursor: default;
+            transform: scale(1.1);
+        }
+
+        .pagination a.disabled {
+            background-color: #ddd;
+            color: #999;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .pagination a i {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body class="loading">
+    <div class="loading-screen">
+        <div class="loading-logo">
+            <img src="Lumous_1_Icon_page-0001-removebg-preview.png" alt="Loading">
+        </div>
+    </div>
+<div>
+
+<script>
+    // Show loading screen on page load
+window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.querySelector('.loading-screen').style.display = 'none';
+                document.body.classList.remove('loading');
+            }, 1000); // Adjust time (3000ms = 3 seconds)
+        });
+
+        // Show loading screen on link clicks or reloads
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    const href = this.getAttribute('href');
+                    if (href && href !== '#' && !href.startsWith('javascript')) {
+                        event.preventDefault();
+                        document.querySelector('.loading-screen').style.display = 'flex';
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 500); // Short delay for smooth transition
+                    }
+                });
+            });
+        });
+</script>
+<div>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
+            </div>
+            <div class="col-md-6 text-center text-lg-end">
+                <div class="position-relative d-inline-flex align-items-center bg-dark text-white top-shape px-5">
+                    <div class="me-3 pe-3 border-end py-2">
+                        <p class="m-0"><i class="fa fa-envelope-open me-2"></i>lumousglobalventures@gmail.com</p>
+                    </div>
+                    <div class="py-2">
+                        <p class="m-0"><i class="fa fa-phone-alt me-2"></i>+91 9500507250</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h3 class="m-0 text-uppercase text-black"><img class="logo-style" src="logo/Lumous 1 Icon_page-0001.jpg" alt="">
+            </i>Lumous Global Ventures</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 me-n3">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Our Services</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="careerCounseliing.html" class="dropdown-item">Career Counselling</a>
+                        <a href="abroad.html" class="dropdown-item">Abroad Education</a>
+                        <a href="staffingSol.html" class="dropdown-item">Staffing Solutions</a>
+                        <a href="branding.html" class="dropdown-item">Branding & PR Services</a>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="feedback.html" class="nav-item nav-link">Testimonial</a>
+                <a href="displayPhotos.html" class="nav-item nav-link">Life At Lumous</a>
+                <a href="career.html" class="nav-item nav-link">Career</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-dark p-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-white">Testimonial</h1>
+                <a href="index.html">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <a href="">Feedbacks</a>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Blog Start -->
+                    <div id="display-video-section">
+                        <div class="videoGrid">
+                            <div class="videoColumn" id="leftColumn"></div>
+                            <div class="videoColumn" id="rightColumn"></div>
+                        </div>
+                        <div id="pagination" class="pagination">
+                        <!-- Pagination buttons will be dynamically created here -->
+                        </div>
+                    </div>
+                    </div>
+    <!-- Blog End -->
+
+
+    <!-- Footer Start -->
+
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+<div class="container-fluid bg-dark text-secondary p-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Quick Links</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="index.html"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                    <a class="text-secondary mb-2" href="about.html"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                    <a class="text-secondary mb-2" href="career.html"><i class="bi bi-arrow-right text-primary me-2"></i>Career</a>
+                    <a class="text-secondary" href="contact.html"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Popular Links</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="abroad.html"><i class="bi bi-arrow-right text-primary me-2"></i>Abroad Education</a>
+                    <a class="text-secondary mb-2" href="careerCounseliing.html"><i class="bi bi-arrow-right text-primary me-2"></i>Career Counseliing</a>
+                    <a class="text-secondary mb-2" href="staffingSol.html"><i class="bi bi-arrow-right text-primary me-2"></i>Staffing Solutions</a>
+                    <a class="text-secondary mb-2" href="branding.html"><i class="bi bi-arrow-right text-primary me-2"></i>Branding & PR Services</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Get In Touch</h3>
+                <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>Thiruvenkata Swamy Road, R.S Puram, Coimbatore</p>
+                <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>lumousglobalventures@gmail.com</p>
+                <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>+91 9500507250</p>
+            </div>
+          
+        <div class="col-lg-3 col-md-6">
+            <h3 class="text-white mb-4">Follow Us</h3>
+            <div class="wrapper">
+                <a href="https://www.instagram.com/lumousgrp/profilecard/?igsh=NG1jNWVzOGEyZGpi" class="icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.instagram.com/lumousglobalventures?igsh=MWs1aXJ4aHo5Ym85eg==" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://youtube.com/@lumousglobalventures?si=50swgI_spo1N62Ki" class="icon"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://x.com/offlumousgv?t=-gL4K-tpNfC9eaXHeMMb1g&s=09" class="icon"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61571537515248&mibextid=ZbWKwL" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+              </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-secondary text-center border-top py-4 px-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+    <p class="m-0">&copy; <a class="text-secondary border-bottom" href="#">Lumous Global Ventures</a>. All Rights Reserved. Designed by <a class="text-secondary border-bottom" href="https://salmanbarickm-portfolio.vercel.app/">Salman Barick</a></p>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+<script>
+      document.addEventListener("DOMContentLoaded", function () {
+            const leftColumn = document.getElementById("leftColumn");
+            const rightColumn = document.getElementById("rightColumn");
+            const pagination = document.getElementById("pagination");
+            const apiUrl = "fetch_videos.php"; // URL for the PHP file
+            let currentPage = 1;
+
+            // Fetch videos and render
+            function fetchVideos(page = 1) {
+                fetch(`${apiUrl}?page=${page}`)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        if (!data.videos || data.videos.length === 0) {
+                            console.error("No videos found for page", page);
+                        }
+                        renderVideos(data.videos);
+                        renderPagination(data.totalPages, page);
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching videos:", error);
+                    });
+            }
+
+            // Render videos in two columns
+            function renderVideos(videos) {
+                leftColumn.innerHTML = ""; // Clear left column
+                rightColumn.innerHTML = ""; // Clear right column
+
+                videos.forEach((video, index) => {
+                    const videoCard = document.createElement("div");
+                    videoCard.className = "video-card";
+                    videoCard.innerHTML = `
+                        <video controls>
+                            <source src="${video.filepath}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h3>${video.title}</h3>
+                        <p>Date: ${video.date}</p>
+                    `;
+
+                    // Alternate videos between left and right columns
+                    if (index % 2 === 0) {
+                        leftColumn.appendChild(videoCard);
+                    } else {
+                        rightColumn.appendChild(videoCard);
+                    }
+                });
+            }
+
+            // Render pagination
+            function renderPagination(totalPages, currentPage) {
+                pagination.innerHTML = ""; // Clear existing pagination
+                if (totalPages <= 1) return;
+
+                const createPageLink = (label, page, isIcon = false, isDisabled = false) => {
+                    const link = document.createElement("a");
+                    link.innerHTML = isIcon ? `<i>${label}</i>` : label;
+                    link.href = "#";
+                    link.className = isDisabled ? "disabled" : (page === currentPage ? "active" : "");
+                    if (!isDisabled) {
+                        link.addEventListener("click", (e) => {
+                            e.preventDefault();
+                            fetchVideos(page);
+                        });
+                    }
+                    return link;
+                };
+
+                // Previous button
+                if (currentPage > 1) {
+                    pagination.appendChild(createPageLink("<", currentPage - 1, true));
+                } else {
+                    pagination.appendChild(createPageLink("<", currentPage - 1, true, true));
+                }
+
+                // Page numbers
+                for (let i = 1; i <= totalPages; i++) {
+                    pagination.appendChild(createPageLink(i, i));
+                }
+
+                // Next button
+                if (currentPage < totalPages) {
+                    pagination.appendChild(createPageLink(">", currentPage + 1, true));
+                } else {
+                    pagination.appendChild(createPageLink(">", currentPage + 1, true, true));
+                }
+            }
+
+            // Initial fetch
+            fetchVideos(currentPage);
+        });
+        </script>
+</body>
+
+</html>
